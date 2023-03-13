@@ -1,4 +1,4 @@
-package org.ch01.test02.way.a;
+package org.ch01.test02.way.demo01.a;
 
 /**
  * @Date 2023-03-13
