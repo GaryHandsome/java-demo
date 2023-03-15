@@ -1,5 +1,4 @@
-package org.ch01.test03.api.demo06;
-
+package org.ch01.test03.api.demo06.d;
 
 /**
  * @Date 2023-03-14
@@ -13,8 +12,7 @@ public class MainTest {
         // 主线程睡眠1秒，让子线程能走一会
         Thread.sleep(1000);
 
-        // 注意：不建议使用，有安全隐患
-        mt.shutdown();
-        System.out.println("程序结束");
+        // 中断线程
+        mt.interrupt();
     }
 }

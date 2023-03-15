@@ -6,7 +6,7 @@ package org.ch01.test03.api.demo03;
  * @Date 2023-03-14
  * @Author zqx
  */
-public class MainTest {
+public class PriorityTest {
     public static void main(String[] args) {
         MyThread mt1 = new MyThread();
         MyThread mt2 = new MyThread();

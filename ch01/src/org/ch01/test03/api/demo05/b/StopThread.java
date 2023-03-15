@@ -1,10 +1,10 @@
-package org.ch01.test03.api.demo06;
+package org.ch01.test03.api.demo05.b;
 
 /**
  * @Date 2023-03-14
  * @Author zqx
  */
-public class MyThread extends Thread {
+public class StopThread extends Thread {
 
     /**
      * 控制变量 - 控制线程是否结束

@@ -4,7 +4,7 @@ package org.ch01.test03.api.demo04;
  * @Date 2023-03-14
  * @Author zqx
  */
-public class MainTest {
+public class JoinTest {
     public static void main(String[] args) throws InterruptedException {
         MyThread mt = new MyThread();
         mt.start();
