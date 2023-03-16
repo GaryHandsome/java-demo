@@ -27,7 +27,7 @@ public class CaiJiThread extends Thread {
             try {
                 Thread.sleep(2000);
             } catch (InterruptedException e) {
-                System.out.println("[睡眠]中断退出之前，做一些后续处理...");
+                // System.out.println("[睡眠]中断退出之前，做一些后续处理...");
                 // 如果进程进入睡眠状态，则需要再一次中断
                 Thread.currentThread().interrupt();
             }
