@@ -1,4 +1,4 @@
-package org.ch01.test05.tx.demo04;
+package org.ch01.test05.tx.demo04.b;
 
 import java.util.LinkedList;
 
@@ -25,7 +25,7 @@ public class Box {
     public synchronized Fruit take() {
         // 如果篮子为空，通知男孩子摘水果，女孩子等等男孩子通知
         if (boxList.size() == 0) {
-            this.notify();
+            this.notifyAll();
             try {
                 // 注意：wait()方法下面的代码不会被执行
                 this.wait();
@@ -57,7 +57,7 @@ public class Box {
     public synchronized void put(Fruit fruit) {
         // 如果篮子已满，通知女孩子吃水果，男孩子等等女孩子通知
         if (boxList.size() == 5) {
-            this.notify();
+            this.notifyAll();
             try {
                 // 注意：wait()方法下面的代码不会被执行
                 this.wait();

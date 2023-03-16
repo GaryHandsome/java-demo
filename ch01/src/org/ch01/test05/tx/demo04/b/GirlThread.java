@@ -1,4 +1,4 @@
-package org.ch01.test05.tx.demo04;
+package org.ch01.test05.tx.demo04.b;
 
 /**
  * 女孩子 - 消费者

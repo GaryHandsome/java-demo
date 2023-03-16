@@ -1,6 +1,8 @@
-package org.ch01.test05.tx.demo04;
+package org.ch01.test05.tx.demo04.a;
 
 /**
+ * 思考：当前案例只有一个男孩和女孩，如果需要多个男孩和女孩，怎么办呢？
+ *
  * @Date 2023-03-15
  * @Author zqx
  */

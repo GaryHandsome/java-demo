@@ -1,4 +1,4 @@
-package org.ch01.test05.tx.demo04;
+package org.ch01.test05.tx.demo04.a;
 
 /**
  * 男孩子 - 生产者
