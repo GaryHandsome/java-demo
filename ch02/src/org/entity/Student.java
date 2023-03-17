@@ -34,7 +34,7 @@ public class Student {
         System.out.println("吃");
     }
 
-    public int sum(int a, int b) {
+    protected int sum(int a, int b) {
         return a + b;
     }
 
