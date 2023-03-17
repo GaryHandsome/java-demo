@@ -8,6 +8,9 @@ public class Student {
     private String name;
     private int age;
 
+    public String sex ;
+    protected float height ;
+
     private Double weight ;
 
     public Student() {}
@@ -39,5 +42,45 @@ public class Student {
         System.out.println("姓名：" + this.name);
         System.out.println("年龄：" + this.age);
         System.out.println("体重：" + this.weight);
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public String getSex() {
+        return sex;
+    }
+
+    public void setSex(String sex) {
+        this.sex = sex;
+    }
+
+    public float getHeight() {
+        return height;
+    }
+
+    public void setHeight(float height) {
+        this.height = height;
+    }
+
+    public Double getWeight() {
+        return weight;
+    }
+
+    public void setWeight(Double weight) {
+        this.weight = weight;
     }
 }
