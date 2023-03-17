@@ -17,3 +17,14 @@ public Student(String name,int age,Double weight)
           public static final int BYTES;
           private static final long serialVersionUID;
       }
+
+四、遍历String类中所有的方法，格式如下所示
+    方法的个数：76
+    public boolean equals(Object arg0)
+    public String toString()
+    public int hashCode()
+    ...
+    public int indexOf(String arg0,int arg1)
+    ...
+    public static String valueOf(char[] arg0,int arg1,int arg2)
+    ...
