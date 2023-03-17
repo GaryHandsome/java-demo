@@ -2,3 +2,18 @@
 
 二、获取类的构造方法，实例化对象，调用show方法
 public Student(String name,int age,Double weight)
+
+三、遍历Integer类中所有的字段，格式如下所示
+      public final class Integer {
+          public static final int MIN_VALUE;
+          public static final int MAX_VALUE;
+          public static final Class TYPE;
+          static final char[] digits;
+          static final char[] DigitTens;
+          static final char[] DigitOnes;
+          static final int[] sizeTable;
+          private final int value;
+          public static final int SIZE;
+          public static final int BYTES;
+          private static final long serialVersionUID;
+      }
