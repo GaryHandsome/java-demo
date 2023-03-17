@@ -44,6 +44,11 @@ public class Student {
         System.out.println("体重：" + this.weight);
     }
 
+    public String study(int hour,String where) {
+        System.out.println("在" + where + "学习，学习时长为：" + hour + "小时");
+        return "好好学习，天天向上" ;
+    }
+
     public String getName() {
         return name;
     }
