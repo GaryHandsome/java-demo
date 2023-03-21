@@ -10,7 +10,7 @@ import java.util.List;
  * @Date 2023-03-21
  * @Author zqx
  */
-public class MainTest02 {
+public class MainTest03 {
     public static void main(String[] args) throws Exception{
         // 实例化一个List集合，并指定泛型 - list.add(String str)
         List<String> list = new ArrayList<>() ;
@@ -29,21 +29,10 @@ public class MainTest02 {
         addMethod.invoke(list,3.14) ;
         addMethod.invoke(list,false) ;
 
-        // 3.获取集合中的数据 - 注意：不能使用循环
-        //for (String s : list) {
-        //    System.out.println(s);
-        //}
-
-        String s1 = list.get(0);
-        // String s2 = list.get(1);
-
-        String s2 = String.valueOf(list.get(1));
-        String s3 = String.valueOf(list.get(2));
-        String s4 = String.valueOf(list.get(3));
-
-        System.out.println("第一个元素：" + s1);
-        System.out.println("第二个元素：" + s2);
-        System.out.println("第三个元素：" + s3);
-        System.out.println("第四个元素：" + s4);
+        // 3.获取集合中的数据 - 注意：循环过程中，需要把各种类型的数据转换为字符串 - String.valueOf()
+        for (Object obj : list) {
+            String s = String.valueOf(obj);
+            System.out.println(s);
+        }
     }
 }
