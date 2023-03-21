@@ -29,7 +29,10 @@ public class BaseServlet extends HttpServlet {
             // 1.获取要调用的方法对象
             Method method = clazz.getDeclaredMethod(methodName,req.getClass(),HttpServletResponse.class);
 
-            // 2.调用方法
+            // 2.开启访问权限
+            method.setAccessible(true);
+
+            // 3.调用方法
             method.invoke(this,req,resp);
         } catch (NoSuchMethodException e) {
             do405(req,resp) ;
