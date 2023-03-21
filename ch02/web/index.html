@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>使用反射操作，实现对Servlet程序进行封装 -- 减少Servlet编写</h1>
+    <h3>实现一个Servlet可以处理多个Http请求</h3>
+
+    <hr/>
+    <h1>之前的操作 - 每一个请求对应一个Servlet程序(多、不便于维护)</h1>
+    <h3><a href="add.do">添加学生</a></h3>
+    <h3><a href="del.do">删除学生</a></h3>
+    <h3><a href="update.do">修改学生</a></h3>
+    <h3><a href="query.do">查询学生</a></h3>
+
+    <h1>现在的操作 - 使用反射封装Servlet，实现一个Servlet可以处理多个请求</h1>
+    <h3><a href="stu.do?action=add">添加学生</a></h3>
+    <h3><a href="stu.do?action=del">删除学生</a></h3>
+    <h3><a href="stu.do?action=update">修改学生</a></h3>
+    <h3><a href="stu.do?action=query">查询学生</a></h3>
+
+
+
+</body>
+</html>
