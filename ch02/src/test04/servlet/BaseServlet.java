@@ -27,7 +27,7 @@ public class BaseServlet extends HttpServlet {
         // 第二：通过Class对象中的方法来获取类的相关信息，并做相应的操作
         try {
             // 1.获取要调用的方法对象
-            Method method = clazz.getDeclaredMethod(methodName,req.getClass(),HttpServletResponse.class);
+            Method method = clazz.getDeclaredMethod(methodName,HttpServletRequest.class,HttpServletResponse.class);
 
             // 2.开启访问权限
             method.setAccessible(true);
