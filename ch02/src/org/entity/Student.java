@@ -88,4 +88,15 @@ public class Student {
     public void setWeight(Double weight) {
         this.weight = weight;
     }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "name='" + name + '\'' +
+                ", age=" + age +
+                ", sex='" + sex + '\'' +
+                ", height=" + height +
+                ", weight=" + weight +
+                '}';
+    }
 }

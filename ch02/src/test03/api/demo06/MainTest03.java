@@ -20,6 +20,12 @@ import java.lang.reflect.Array;
  *
  *  课堂练习：创建一个学生类型的数组，存放三个学生，循环遍历输出
  *
+ *  String[] arr = new String[3] ;
+ *  int[] arr = new int[3] ;
+ *
+ *  Xxx[] arr = new Xxx[3] ;
+ *
+ *
  * @Date 2023-03-21
  * @Author zqx
  */
