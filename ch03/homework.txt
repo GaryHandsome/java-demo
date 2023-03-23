@@ -8,12 +8,36 @@
   提示：参考test01.demo03.GenericTest
 
 二、定义一个泛型类实现实例化某个类的对象 - 反射
+
 三、定义泛型方法实现实例化某个类的对象
 
 四、基于第一题，主人只能带“温顺”的动物去逛街
 
+把 “温顺” 定义为一个接口
+
+能否把 “温顺” 定义为一个类呢？
+
 五、基于第一题，创建一个女主人类（Woman），
     实现女主人只能与任何动物打招呼
+
+六、编写程序，使用泛型，创建一个MyArrayList的泛型类，模拟JDK中的ArrayList的实现，要求如下：
+    1)动态扩容
+    2)add(): 添加元素
+    3)remove(): 删除元素
+    4)size(): 返回集合元素的实际个数
+    5)set(): 给集合某个下标设置元素
+    6)get(): 获取集合下标对应的元素
+    7)isEmpty()：判断集合是否为空
+
+    提示：
+    1）参考源码，方法参数根据需要自定义！
+
+    2）数组扩容：System.arraycopy(Object src, int srcPos, Object dest, int destPos, int length)
+        Object src : 源数组
+        int srcPos : 从源数组的起始位置开始
+        Object dest : 目标数组
+        int destPos : 目标数组的开始起始位置
+        int length  : 要copy的数组的长度
 
 
 

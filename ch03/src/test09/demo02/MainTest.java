@@ -11,7 +11,11 @@ public class MainTest {
         // 实例化泛型类对象
         // GenericTest<Integer> gt1 = new GenericTest<>();
         // GenericTest<Double> gt2 = new GenericTest<>();
+
+        // 类本身
         GenericTest<Animal> gt3 = new GenericTest<>();
+
+        // 子类
         GenericTest<Pig> gt4 = new GenericTest<>();
         GenericTest<CartoonPig> gt5 = new GenericTest<>();
 
