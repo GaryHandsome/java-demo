@@ -1,7 +1,6 @@
 package test00.demo02;
 
 import java.lang.reflect.Constructor;
-import java.lang.reflect.InvocationTargetException;
 
 /**
  * 泛型类 - 实例化某个类的对象
@@ -9,7 +8,7 @@ import java.lang.reflect.InvocationTargetException;
  * @Date 2023-03-23
  * @Author zqx
  */
-public class ObjectUtil<T> {
+public class ObjectUtil01<T> {
     /**
      * 基于某个类的默认构造方法实例化对象
      *
