@@ -14,7 +14,7 @@ public class MainTest {
 
         // 泛型类实现的缺点：每构造一个类的对象时，
         // 都必须实例化一个泛型类对象（ObjectUtil）
-
+        // 如何解决？ - 泛型方法
         ObjectUtil<Dog> objectUtil2 = new ObjectUtil<>();
         Dog dog = objectUtil2.create(Dog.class);
         dog.sleep();
