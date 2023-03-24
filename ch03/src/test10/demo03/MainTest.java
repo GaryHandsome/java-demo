@@ -22,6 +22,7 @@ public class MainTest {
         // 逆变不可以获取元素
         // Pig pig = list.get(0);
         Pig pig = (Pig)list.get(0);
-        Object obj = list.get(0) ;
+        list.get(0) ;
+
     }
 }
