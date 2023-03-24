@@ -40,7 +40,7 @@ public class MyArrayList<E> {
 
 
     /**
-     * 动态扩容 - 原来长度 * 2
+     * 1、动态扩容 - 原来长度 * 2
      */
     private void newCapacity() {
         if (size == elementData.length) {
@@ -56,7 +56,7 @@ public class MyArrayList<E> {
     }
 
     /**
-     * 2)add(): 添加元素
+     * 2、add(): 添加元素
      *
      * @param e 添加的元素
      * @return 是否成功
@@ -74,7 +74,7 @@ public class MyArrayList<E> {
     }
 
     /**
-     * 3)remove(): 删除元素 - 根据下标索引删除
+     * 3、remove(): 删除元素 - 根据下标索引删除
      *
      * @param delIndex
      * @return
@@ -99,20 +99,52 @@ public class MyArrayList<E> {
         }
     }
 
-
     /**
-     * 4)size(): 返回集合元素的实际个数
+     * 4、size(): 返回集合元素的实际个数
      *
      * @return
      */
     public int size() {
         return this.size;
     }
-    // 5)set(): 给集合某个下标设置元素
-    // 6)get(): 获取集合下标对应的元素
 
     /**
-     * 7)isEmpty()：判断集合是否为空
+     * 5、set(): 给集合某个下标设置元素
+     *
+     * @param index
+     * @param element
+     * @return
+     */
+    public E set(int index, E element) {
+        // 1）验证索引合法性
+        checkIndex(index);
+
+        // 2）获取修改之前的元素
+        E oldElement = (E) this.elementData[index];
+
+        // 3）修改操作
+        this.elementData[index] = element;
+
+        // 4）返回修改之前的元素
+        return oldElement;
+    }
+
+    /**
+     * 6、get(): 获取集合下标对应的元素
+     *
+     * @param index
+     * @return
+     */
+    public E get(int index) {
+        // 1）验证索引合法性
+        checkIndex(index);
+
+        // 2）返回结果 - 向下转换
+        return (E) this.elementData[index];
+    }
+
+    /**
+     * 7、isEmpty()：判断集合是否为空
      *
      * @return
      */
@@ -122,7 +154,7 @@ public class MyArrayList<E> {
 
 
     /**
-     * 重写toString方法，返回类似这样的结果：[AA,BB,CC,DD]
+     * 8、重写toString方法，返回类似这样的结果：[AA,BB,CC,DD]
      *
      * @return
      */
