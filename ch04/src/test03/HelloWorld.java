@@ -1,7 +1,6 @@
 package test03;
 
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Target;
+import java.lang.annotation.*;
 
 /**
  * 自定义注解 - HelloWorld
@@ -11,6 +10,8 @@ import java.lang.annotation.Target;
  * @Date 2023-03-27
  * @Author zqx
  */
-@Target({ElementType.TYPE,ElementType.FIELD,ElementType.METHOD})
+@Target({ElementType.TYPE,ElementType.FIELD,ElementType.METHOD,ElementType.PARAMETER})
+@Retention(RetentionPolicy.RUNTIME)
+@Inherited
 public @interface HelloWorld {
 }
