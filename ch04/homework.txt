@@ -58,3 +58,29 @@ public int getSum(@Xxx(value=100) int n) {
 
 
 五、DbUtil的封装，实现一个通用的查询操作 - 结合泛型、反射、注解实现
+    结果集元数据对象 - 获取 ResultSet 对象中列的类型和属性的信息
+    ResultSetMetaData metaData = 结果集对象.getMetaData();
+
+    // 获取结果集查询的列数
+    int count = metaData.getColumnCount();
+
+    // getColumnLabel(下标)：获取列的别名，下标从1开始
+    // 如果没有指定别名，则与getColumnName一样，获取列的名称，否则获取别名
+    String name = metaData.getColumnLabel(下标);
+
+
+    drop database if exists jdbc_test;
+    create database if not exists jdbc_test ;
+
+    use jdbc_test;
+    create table `staffs`(
+         `id` int(10) primary key auto_increment,
+         `name` varchar(24) not null default '' comment '姓名',
+         `age` int(10) not null default 0 comment '年龄',
+         `phone` char(11) not null default '' comment '联系方式',
+         `sta_pos` varchar(20) not null default '' comment '职位',
+         `add_time` timestamp not null default current_timestamp comment '入职时间'
+    ) comment '员工记录表';
+
+
+
