@@ -2,10 +2,8 @@ package test00.demo05;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -84,6 +82,7 @@ public class SqlRunner {
      * @return 返回的List集合
      */
     public <T> List<T> executeQuery(Class<T> clazz, String sql, Object... params) {
+        List<T> list = new ArrayList<>() ;
 
         // 第一：获取连接对象
         if (connection == null) {
@@ -103,16 +102,31 @@ public class SqlRunner {
             // 第四：执行SQL语句 - ResultSet
             rs = ps.executeQuery();
 
+            // 第五：获取结果集元数据对象
+            ResultSetMetaData metaData = rs.getMetaData();
+
+            // 第六：获取查询字段的数量
+            int count = metaData.getColumnCount();
+
+            System.out.println("查询字段数量：" + count);
+
             // 第五：对结果集进行处理 - 遍历结果集，读取结果集中的数据，封装到List集合
             while (rs.next()) {
                 // 1.实例化实体对象 - 思考：实体对象是谁呢？ - 在这里，谁都可以，我们要做一个通用的查询 - 通过 clazz 这个参数来确定要操作的具体实体对象的Class对象
                 T entity = clazz.getConstructor().newInstance();
 
-                // 2.读取结果集各列的数据
+                // 2.读取结果集各列的数据 - 思考：有几列数据？是不确定的 - 解决？ - ResultSetMetaData
+                // Object xxx = rs.getObject("yyy") ;
+                for (int i = 1; i <= count; i++) {
+                    String name = metaData.getColumnLabel(i);
+                    System.out.println(name);
+                }
 
-                // 3.封装数据到实体对象中
+                // 3.封装数据到实体对象中 - 思考：获取数据后，给对象的哪个属性初始化呢？ - 反射
+                // entity.setYyy(xxx) ;
 
                 // 4.把实体对象添加到 List 集合中
+                // list.add(entity) ;
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -130,6 +144,6 @@ public class SqlRunner {
         }
 
 
-        return null;
+        return list;
     }
 }
