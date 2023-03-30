@@ -33,4 +33,16 @@ public class Staff {
      * 注册时间
      */
     private Date addTime;
+
+    @Override
+    public String toString() {
+        return "Staff{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", age=" + age +
+                ", phone='" + phone + '\'' +
+                ", staPos='" + staPos + '\'' +
+                ", addTime=" + addTime +
+                '}';
+    }
 }

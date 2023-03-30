@@ -122,14 +122,17 @@ public class SqlRunner {
                     // 2.2）根据名称获取实体对象的字段对象
                     Field declaredField = clazz.getDeclaredField(name);
 
-                    // 2.3）获取结果集中的数据
+                    // 2.3）设置字段访问权限
+                    declaredField.setAccessible(true);
+
+                    // 2.4）获取结果集中的数据
                     Object obj = rs.getObject(i);
 
-                    // 2.4）封装数据到实体对象中 - 思考：获取数据后，给对象的哪个属性初始化呢？ - 反射
+                    // 2.5）封装数据到实体对象中 - 思考：获取数据后，给对象的哪个属性初始化呢？ - 反射
                     declaredField.set(entity,obj);
                 }
 
-                // 4.把实体对象添加到 List 集合中
+                // 3.把实体对象添加到 List 集合中
                 list.add(entity) ;
             }
         } catch (SQLException e) {
