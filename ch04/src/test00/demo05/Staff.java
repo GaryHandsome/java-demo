@@ -28,10 +28,12 @@ public class Staff {
     /**
      * 职位
      */
+    @Column("sta_pos")
     private String staPos;
     /**
      * 注册时间
      */
+    @Column("add_time")
     private Date addTime;
 
     @Override

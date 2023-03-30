@@ -73,6 +73,40 @@ public class SqlRunner {
         }
     }
 
+
+    /**
+     * 返回实体对象的属性名称
+     *
+     * @param clazz 实体对象的 Class 对象
+     * @param columnLabel select 后面的名称
+     * @param <T>
+     * @return
+     */
+    private <T> String getFieldName(Class<T> clazz, String columnLabel) {
+        // 1.获取实体对象所有的字段对象
+        Field[] fields = clazz.getDeclaredFields();
+
+        // 2.循环遍历字段数组
+        for (Field field : fields) {
+            // 3.判断字段是否存在 Column 注解
+            boolean isExist = field.isAnnotationPresent(Column.class);
+
+            // 4.如果存在，则获取注解的内容
+            if(isExist) {
+                String columnName = field.getAnnotation(Column.class).value();
+
+                // 5.判断注解的内容是否与 select 后面的字段名称一样
+                if(columnName.equals(columnLabel)) {
+                    // 6.如果一样，则返回字段名称 - staPos
+                    return field.getName() ;
+                }
+            }
+        }
+        // 7.如果不一样，则返回 select 后面的字段名称
+        return columnLabel;
+    }
+
+
     /**
      * 通用查询操作 - 返回的List集合
      *
@@ -83,7 +117,7 @@ public class SqlRunner {
      * @return 返回的List集合
      */
     public <T> List<T> executeQuery(Class<T> clazz, String sql, Object... params) {
-        List<T> list = new ArrayList<>() ;
+        List<T> list = new ArrayList<>();
 
         // 第一：获取连接对象
         if (connection == null) {
@@ -91,7 +125,7 @@ public class SqlRunner {
         }
 
         PreparedStatement ps = null;
-        ResultSet rs = null ;
+        ResultSet rs = null;
 
         try {
             // 第二：预编译SQL语句
@@ -116,8 +150,8 @@ public class SqlRunner {
                 // 2.读取结果集各列的数据 - 思考：有几列数据？是不确定的 - 解决？ - ResultSetMetaData
                 // Object xxx = rs.getObject("yyy") ;
                 for (int i = 1; i <= count; i++) {
-                    // 2.1）获取查询字段名称 - 必须和实体对象的属性名称保持一致
-                    String name = metaData.getColumnLabel(i);
+                    // 2.1）获取查询字段名称 - 必须和实体对象的属性名称保持一致 - sta_pos、add_time
+                    String name = getFieldName(clazz,metaData.getColumnLabel(i));
 
                     // 2.2）根据名称获取实体对象的字段对象
                     Field declaredField = clazz.getDeclaredField(name);
@@ -129,11 +163,11 @@ public class SqlRunner {
                     Object obj = rs.getObject(i);
 
                     // 2.5）封装数据到实体对象中 - 思考：获取数据后，给对象的哪个属性初始化呢？ - 反射
-                    declaredField.set(entity,obj);
+                    declaredField.set(entity, obj);
                 }
 
                 // 3.把实体对象添加到 List 集合中
-                list.add(entity) ;
+                list.add(entity);
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);

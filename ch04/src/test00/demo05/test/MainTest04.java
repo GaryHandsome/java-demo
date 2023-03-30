@@ -18,7 +18,7 @@ public class MainTest04 {
         SqlRunner sqlRunner = new SqlRunner(DbUtil.getConnection());
 
         // 第二：定义要操作数据库的 SQL 语句 - 增、删、改
-        String sql = "select id,name,age,phone,sta_pos as staPos,add_time as addTime from staffs";
+        String sql = "select id,name,age,phone,sta_pos,add_time as addTime from staffs";
 
         // 第三：执行SQL语句
         List<Staff> list = sqlRunner.executeQuery(Staff.class,sql);
