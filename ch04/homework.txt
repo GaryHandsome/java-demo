@@ -57,7 +57,7 @@ public int getSum(@Xxx(value=100) int n) {
     标记动物健康情况
 
 
-五、DbUtil的封装，实现一个通用的查询操作 - 结合泛型、反射、注解实现
+五、JDBC的封装，实现一个通用的更新、查询操作 - 结合泛型、反射、注解实现
     结果集元数据对象 - 获取 ResultSet 对象中列的类型和属性的信息
     ResultSetMetaData metaData = 结果集对象.getMetaData();
 

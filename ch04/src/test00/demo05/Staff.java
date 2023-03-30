@@ -8,7 +8,7 @@ import java.util.Date;
  * @Date 2023-03-29
  * @Author zqx
  */
-public class staff {
+public class Staff {
     /**
      * 编号
      */
