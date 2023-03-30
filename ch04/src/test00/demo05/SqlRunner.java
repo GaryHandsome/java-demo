@@ -1,6 +1,7 @@
 package test00.demo05;
 
 import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.sql.*;
 import java.util.ArrayList;
@@ -108,38 +109,35 @@ public class SqlRunner {
             // 第六：获取查询字段的数量
             int count = metaData.getColumnCount();
 
-            System.out.println("查询字段数量：" + count);
-
-            // 第五：对结果集进行处理 - 遍历结果集，读取结果集中的数据，封装到List集合
+            // 第七：对结果集进行处理 - 遍历结果集，读取结果集中的数据，封装到List集合
             while (rs.next()) {
                 // 1.实例化实体对象 - 思考：实体对象是谁呢？ - 在这里，谁都可以，我们要做一个通用的查询 - 通过 clazz 这个参数来确定要操作的具体实体对象的Class对象
                 T entity = clazz.getConstructor().newInstance();
-
                 // 2.读取结果集各列的数据 - 思考：有几列数据？是不确定的 - 解决？ - ResultSetMetaData
                 // Object xxx = rs.getObject("yyy") ;
                 for (int i = 1; i <= count; i++) {
+                    // 2.1）获取查询字段名称 - 必须和实体对象的属性名称保持一致
                     String name = metaData.getColumnLabel(i);
-                    System.out.println(name);
+
+                    // 2.2）根据名称获取实体对象的字段对象
+                    Field declaredField = clazz.getDeclaredField(name);
+
+                    // 2.3）获取结果集中的数据
+                    Object obj = rs.getObject(i);
+
+                    // 2.4）封装数据到实体对象中 - 思考：获取数据后，给对象的哪个属性初始化呢？ - 反射
+                    declaredField.set(entity,obj);
                 }
 
-                // 3.封装数据到实体对象中 - 思考：获取数据后，给对象的哪个属性初始化呢？ - 反射
-                // entity.setYyy(xxx) ;
-
                 // 4.把实体对象添加到 List 集合中
-                // list.add(entity) ;
+                list.add(entity) ;
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
-        } catch (InvocationTargetException e) {
-            throw new RuntimeException(e);
-        } catch (InstantiationException e) {
-            throw new RuntimeException(e);
-        } catch (IllegalAccessException e) {
-            throw new RuntimeException(e);
-        } catch (NoSuchMethodException e) {
+        } catch (Exception e) {
             throw new RuntimeException(e);
         } finally {
-            // 第六：关闭对象
+            // 第八：关闭对象
             DbUtil.close(rs, ps, connection);
         }
 
