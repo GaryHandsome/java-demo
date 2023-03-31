@@ -47,7 +47,7 @@ public class TestClass {
     }
 
     /**
-     * 接口作为方法返回值的使用 - 匿名内部类
+     * 接口作为方法返回值的使用 - Lambada表达式实现
      *
      * @return
      */
