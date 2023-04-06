@@ -10,6 +10,16 @@ import java.util.function.Function;
  */
 public class MainTest01 {
 
+    /**
+     * 定义 Function 接口，实现把一个 String 类型的数据转换为 Integer 类型的数据
+     *
+     * T - String
+     * R - Integer
+     *
+     *
+     * @param data
+     * @param function
+     */
     public static void change(String data,
                               Function<String, Integer> function) {
         Integer intData = function.apply(data);
