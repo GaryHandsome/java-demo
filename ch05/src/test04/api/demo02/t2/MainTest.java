@@ -11,9 +11,9 @@ import java.util.function.Supplier;
 public class MainTest {
     public static void main(String[] args) {
         // 接口 对象 = new 接口(){抽象方法的实现} ;
-        Supplier<String> supplier = new Supplier(){
+        Supplier<String> supplier = new Supplier<String>(){
             @Override
-            public Object get() {
+            public String get() {
                 return "好好学习，天天向上";
             }
         };
