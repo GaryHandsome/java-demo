@@ -14,7 +14,9 @@ public class MainTest {
      * @param sb
      * @return
      */
-    private static Student build(String name, int age, StudentBuilder sb) {
+    private static Student build(String name,
+                                 int age,
+                                 StudentBuilder sb) {
         return sb.create(name, age);
     }
 
