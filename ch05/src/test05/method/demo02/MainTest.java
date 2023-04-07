@@ -29,13 +29,14 @@ public class MainTest {
         // 2.Lambda表达式 - void sayHello(String name);
         user.wenHao("李四",(name)->System.out.println("你好呀，" + name));
 
-        // 3.方法引用
-        // 3.1引用静态方法
+        // 3.方法引用 - 引用已经存在的方法，代替 Lambda 表达式，从而实现函数式接口中的抽象方法
+        // 3.1引用静态方法 - 类名::静态方法
         user.wenHao("王五",User::goodAfternoon);
 
-        // 3.2引用成员方法
+        // 3.2引用成员方法 - 对象名::成员方法
         user.wenHao("赵六",user::goodMorning);
 
+        // 错误 - 引用的方法不匹配函数式接口中的抽象方法
         // user.wenHao("赵六",User::goodNight);
     }
 }
