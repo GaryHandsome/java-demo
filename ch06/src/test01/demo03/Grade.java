@@ -11,5 +11,6 @@ package test01.demo03;
  * @Author zqx
  */
 public enum Grade {
-    A, B, C, D, E, F
+    // Grade A = new Grade() ;
+    A, B, C, D, E
 }

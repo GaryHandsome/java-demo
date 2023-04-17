@@ -1,4 +1,4 @@
-package test01.demo03;
+package test01.demo04;
 
 /**
  * @Date 2023-04-17
@@ -13,5 +13,11 @@ public class MainTest {
         s.setGrade(Grade.A);
 
         System.out.println(s);
+
+        // 调用成员方法
+        s.getGrade().test01();
+
+        // 调用成员方法
+        Grade.test02();
     }
 }
